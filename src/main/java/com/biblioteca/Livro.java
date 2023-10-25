@@ -1,15 +1,25 @@
 package com.biblioteca;
 
-import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-@Table(name = "livros")
+@Entity
 public class Livro {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "isbn")
     private String isbn;
     private String titulo;
+    @ManyToOne
     private Autor autor;
     private int ediçao;
     private int ano;
     private char disp;
+    @ManyToOne
     private Editora editora;
 
     public Livro() {

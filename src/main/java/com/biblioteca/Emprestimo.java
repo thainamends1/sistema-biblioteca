@@ -2,15 +2,25 @@ package com.biblioteca;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Emprestimo {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private LocalDate dataEmp;
     private LocalDate dataDevolucao;
+    @ManyToOne
     private Livro isbn_livro;
+    @ManyToOne
     private Usuario cpf_usuario;
 
     public Emprestimo() {
-
     }
 
     public Emprestimo(int id, LocalDate dataEmp, LocalDate dataDevolucao, Livro isbn_livro, Usuario cpf_usuario) {
