@@ -39,7 +39,7 @@ CREATE TABLE usuario(
 
 );
 CREATE TABLE emprestimo(
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     dataEmp DATE NOT NULL,
     dataDevolucao DATE NOT NULL,
     isbn_livro VARCHAR(100) NOT NULL,
