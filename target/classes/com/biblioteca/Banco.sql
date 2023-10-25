@@ -1,4 +1,5 @@
-
+CREATE DATABASE sis-biblioteca;
+Use sis-biblioteca;
 
 CREATE TABLE livros (
     isbn VARCHAR(100) PRIMARY KEY,
