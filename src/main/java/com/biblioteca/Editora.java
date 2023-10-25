@@ -33,4 +33,8 @@ public class Editora {
         this.nome = nome;
     }
 
+    public void create(EditoraDAO editoraDAO) {
+        editoraDAO.em.persist(this);
+    }
+
 }
