@@ -1,40 +1,43 @@
 package com.biblioteca;
 
 public class Livro {
-    private int id;
+    private String isbn;
     private String titulo;
-    private String autor;
+    private Autor autor;
     private int ediçao;
     private int ano;
     private char disp;
+    private Editora editora;
 
     public Livro() {
 
     }
 
-    public Livro(int id, String titulo, String autor, int ediçao, int ano, char disp) {
-        this.id = id;
+    public Livro(String isbn, String titulo, Autor autor, int ediçao, int ano, char disp, Editora editora) {
+        this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
         this.ediçao = ediçao;
         this.ano = ano;
         this.disp = disp;
+        this.editora = editora;
     }
 
-    public Livro(String titulo, String autor, int ediçao, int ano, char disp) {
+    public Livro(String titulo, Autor autor, int ediçao, int ano, char disp, Editora editora) {
         this.titulo = titulo;
         this.autor = autor;
         this.ediçao = ediçao;
         this.ano = ano;
         this.disp = disp;
+        this.editora = editora;
     }
 
-    public int getId() {
-        return id;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getTitulo() {
@@ -45,11 +48,11 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
@@ -75,6 +78,14 @@ public class Livro {
 
     public void setDisp(char disp) {
         this.disp = disp;
+    }
+
+    public Editora getEditora() {
+        return editora;
+    }
+
+    public void setEditora(Editora editora) {
+        this.editora = editora;
     }
 
 }

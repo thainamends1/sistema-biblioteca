@@ -1,28 +1,50 @@
 package com.biblioteca;
 
 public class Usuario {
-    private int id;
+    private int cpf;
     private String nome;
+    private String email;
+    private String senha;
 
     public Usuario() {
 
     }
 
-    public Usuario(int id, String nome) {
-        this.id = id;
+    public Usuario(int cpf, String nome, String email, String senha) {
+        this.cpf = cpf;
         this.nome = nome;
+        this.email = email;
+        this.senha = senha;
     }
 
-    public Usuario(String nome) {
+    public Usuario(String nome, String email, String senha) {
         this.nome = nome;
+        this.email = email;
+        this.senha = senha;
     }
 
-    public int getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {

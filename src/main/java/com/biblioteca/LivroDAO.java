@@ -37,7 +37,7 @@ public class LivroDAO implements ICRUD<Livro> {
     public void print(List<Livro> listaLivro) {
         System.out.println("\n\n");
         for (Livro item : listaLivro) {
-            System.out.println("id: " + item.getId() + " Nome: " + item.getTitulo());
+            System.out.println("isbn: " + item.getIsbn() + " Nome: " + item.getTitulo());
         }
     }
 

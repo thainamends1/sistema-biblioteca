@@ -37,7 +37,7 @@ public class UsuarioDAO implements ICRUD<Usuario> {
     public void print(List<Usuario> listaUsuario) {
         System.out.println("\n\n");
         for (Usuario item : listaUsuario) {
-            System.out.println("id: " + item.getId() + " Nome: " + item.getNome());
+            System.out.println("id: " + item.getCpf() + " Nome: " + item.getNome());
         }
     }
 
