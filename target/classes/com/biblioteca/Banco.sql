@@ -27,7 +27,7 @@ CREATE TABLE autor (
 
 );
 
-CREATE TABLE ususario(
+CREATE TABLE usuario(
     cpf INT PRIMARY KEY,
     nome VARCHAR(30) NOT NULL,
     senha INT NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE emprestimo(
     id INT PRIMARY KEY,
     dataEmp DATE NOT NULL,
     dataDevolucao DATE NOT NULL,
-    isbn_livro INT NOT NULL,
+    isbn_livro VARCHAR(100) NOT NULL,
     cpf_usuario INT NOT NULL,
     FOREIGN KEY (isbn_livro) REFERENCES livros(isbn),
     FOREIGN KEY (cpf_usuario) REFERENCES usuario(cpf)

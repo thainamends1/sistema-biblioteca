@@ -1,5 +1,8 @@
 package com.biblioteca;
 
+import javax.persistence.Table;
+
+@Table(name = "livros")
 public class Livro {
     private String isbn;
     private String titulo;
@@ -10,7 +13,6 @@ public class Livro {
     private Editora editora;
 
     public Livro() {
-
     }
 
     public Livro(String isbn, String titulo, Autor autor, int ediçao, int ano, char disp, Editora editora) {
