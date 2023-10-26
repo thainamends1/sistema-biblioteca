@@ -2,7 +2,6 @@ package com.biblioteca;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,39 +13,49 @@ import javax.persistence.OneToMany;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "isbn")
+    private int id;
     private String isbn;
     private String titulo;
-    @ManyToOne
-    private Autor autor;
     private int ediçao;
     private int ano;
     private char disp;
     @ManyToOne
+    private Autor autor;
+    @ManyToOne
     private Editora editora;
     @OneToMany(mappedBy = "livro")
-    private List<Emprestimo> emprestimo;
+    private List<Emprestimo> listaEmprestimo;
 
     public Livro() {
     }
 
-    public Livro(String isbn, String titulo, Autor autor, int ediçao, int ano, char disp, Editora editora) {
+    public Livro(String isbn, String titulo, int ediçao, int ano, char disp, Autor autor, Editora editora,
+            List<Emprestimo> listaEmprestimo) {
         this.isbn = isbn;
         this.titulo = titulo;
-        this.autor = autor;
         this.ediçao = ediçao;
         this.ano = ano;
         this.disp = disp;
+        this.autor = autor;
         this.editora = editora;
+        this.listaEmprestimo = listaEmprestimo;
     }
 
-    public Livro(String titulo, Autor autor, int ediçao, int ano, char disp, Editora editora) {
+    public Livro(int id, String isbn, String titulo, int ediçao, int ano, char disp, Autor autor, Editora editora,
+            List<Emprestimo> listaEmprestimo) {
+        this.id = id;
+        this.isbn = isbn;
         this.titulo = titulo;
-        this.autor = autor;
         this.ediçao = ediçao;
         this.ano = ano;
         this.disp = disp;
+        this.autor = autor;
         this.editora = editora;
+        this.listaEmprestimo = listaEmprestimo;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getIsbn() {
@@ -63,14 +72,6 @@ public class Livro {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Autor autor) {
-        this.autor = autor;
     }
 
     public int getEdiçao() {
@@ -97,6 +98,14 @@ public class Livro {
         this.disp = disp;
     }
 
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
     public Editora getEditora() {
         return editora;
     }
@@ -105,4 +114,13 @@ public class Livro {
         this.editora = editora;
     }
 
+    public List<Emprestimo> getListaEmprestimo() {
+        return listaEmprestimo;
+    }
+
+    public void setListaEmprestimo(List<Emprestimo> listaEmprestimo) {
+        this.listaEmprestimo = listaEmprestimo;
+    }
+
+    
 }

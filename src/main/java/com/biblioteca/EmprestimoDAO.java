@@ -36,8 +36,8 @@ public class EmprestimoDAO implements ICRUD<Emprestimo> {
     public void print(List<Emprestimo> listaEmprestimo) {
         System.out.println("\n\n");
         for (Emprestimo item : listaEmprestimo) {
-            System.out.println("nome usuario: " + item.getCpf_usuario().getNome() + " Titulo do livro: "
-                    + item.getIsbn_livro().getTitulo());
+            System.out.println("nome usuario: " + item.getUsuario().getNome() + " Titulo do livro: "
+                    + item.getLivro().getTitulo());
         }
     }
 

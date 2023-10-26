@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,28 +16,26 @@ public class Emprestimo {
     private LocalDate dataEmp;
     private LocalDate dataDevolucao;
     @ManyToOne
-    @JoinColumn(name = "isbn_livro")
-    private Livro isbn_livro;
+    private Livro livro;
     @ManyToOne
-    @JoinColumn(name = "cpf_usuario")
-    private Usuario cpf_usuario;
+    private Usuario usuario;
 
     public Emprestimo() {
     }
 
-    public Emprestimo(int id, LocalDate dataEmp, LocalDate dataDevolucao, Livro isbn_livro, Usuario cpf_usuario) {
+    public Emprestimo(int id, LocalDate dataEmp, LocalDate dataDevolucao, Livro livro, Usuario usuario) {
         this.id = id;
         this.dataEmp = dataEmp;
         this.dataDevolucao = dataDevolucao;
-        this.isbn_livro = isbn_livro;
-        this.cpf_usuario = cpf_usuario;
+        this.livro = livro;
+        this.usuario = usuario;
     }
 
-    public Emprestimo(LocalDate dataEmp, LocalDate dataDevolucao, Livro isbn_livro, Usuario cpf_usuario) {
+    public Emprestimo(LocalDate dataEmp, LocalDate dataDevolucao, Livro livro, Usuario usuario) {
         this.dataEmp = dataEmp;
         this.dataDevolucao = dataDevolucao;
-        this.isbn_livro = isbn_livro;
-        this.cpf_usuario = cpf_usuario;
+        this.livro = livro;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -65,20 +62,20 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Livro getIsbn_livro() {
-        return isbn_livro;
+    public Livro getLivro() {
+        return livro;
     }
 
-    public void setIsbn_livro(Livro isbn_livro) {
-        this.isbn_livro = isbn_livro;
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
-    public Usuario getCpf_usuario() {
-        return cpf_usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setCpf_usuario(Usuario cpf_usuario) {
-        this.cpf_usuario = cpf_usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

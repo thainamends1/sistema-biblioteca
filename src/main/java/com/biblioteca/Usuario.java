@@ -2,30 +2,30 @@ package com.biblioteca;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cpf")
-    private int cpf;
+    private String cpf;
     private String nome;
     private String email;
     private String senha;
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany
+    @JoinColumn(name = "emprestimo", referencedColumnName = "id")
     private List<Emprestimo> emprestimo;
 
     public Usuario() {
 
     }
 
-    public Usuario(int cpf, String nome, String email, String senha) {
+    public Usuario(String cpf, String nome, String email, String senha) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -54,11 +54,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

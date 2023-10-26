@@ -1,6 +1,5 @@
 package com.biblioteca;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,28 +9,29 @@ import javax.persistence.Id;
 public class Editora {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "cnpj", unique = true, nullable = false)
-    private int cnpj;
+    private int id;
+    private String cnpj;
     private String nome;
 
-    public Editora(String nome) {
-        this.nome = nome;
+     public Editora() {
     }
 
-    public Editora(int cnpj, String nome) {
+    public Editora(String cnpj, String nome) {
+        this.cnpj = cnpj;
+        this.nome = nome;
+    }  
+
+    public Editora(int id, String cnpj, String nome) {
+        this.id = id;
         this.cnpj = cnpj;
         this.nome = nome;
     }
 
-    public Editora() {
-
-    }
-
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
