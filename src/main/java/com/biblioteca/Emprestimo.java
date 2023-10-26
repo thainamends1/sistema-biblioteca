@@ -6,18 +6,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Emprestimo {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDate dataEmp;
     private LocalDate dataDevolucao;
     @ManyToOne
+    @JoinColumn(name = "isbn_livro")
     private Livro isbn_livro;
     @ManyToOne
+    @JoinColumn(name = "cpf_usuario")
     private Usuario cpf_usuario;
 
     public Emprestimo() {

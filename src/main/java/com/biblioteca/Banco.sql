@@ -2,7 +2,7 @@ CREATE DATABASE sisbiblioteca;
 Use sisbiblioteca;
 
 CREATE TABLE editora (
-    cnpj INT PRIMARY KEY NOT NULL,
+    cnpj INT PRIMARY KEY,
     nome VARCHAR(30) NOT NULL
 );
 
@@ -35,7 +35,5 @@ CREATE TABLE emprestimo(
     dataEmp DATE NOT NULL,
     dataDevolucao DATE NOT NULL,
     isbn_livro VARCHAR(100) NOT NULL,
-    cpf_usuario INT NOT NULL,
     FOREIGN KEY (isbn_livro) REFERENCES livro(isbn),
-    FOREIGN KEY (cpf_usuario) REFERENCES usuario(cpf)
 );

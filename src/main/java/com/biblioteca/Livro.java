@@ -1,16 +1,19 @@
 package com.biblioteca;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Livro {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "isbn")
     private String isbn;
     private String titulo;
@@ -21,6 +24,8 @@ public class Livro {
     private char disp;
     @ManyToOne
     private Editora editora;
+    @OneToMany(mappedBy = "livro")
+    private List<Emprestimo> emprestimo;
 
     public Livro() {
     }
